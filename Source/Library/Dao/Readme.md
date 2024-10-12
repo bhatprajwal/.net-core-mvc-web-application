@@ -18,10 +18,10 @@ service.AddDao(builder);
 }
 ```
 # OR
-### Add to appsettings.json - My SQL
+### Add to appsettings.json - MSSQL
 ```json
 "ConnectionStrings": {
-	"Default": "Data Source=localhost;Initial Catalog=DatabaseName;User ID=UserName;Password=Password""
+	"Default": "Data Source=localhost;Initial Catalog=DatabaseName;User ID=UserName;Password=Password"
 }
 ```
 
