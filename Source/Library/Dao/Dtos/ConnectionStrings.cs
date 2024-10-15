@@ -2,5 +2,6 @@
 
 public class ConnectionStrings
 {
-    public string? Default { get; set; }
+    public string? Prod { get; set; }
+    public string? Dev { get; set; }
 }
