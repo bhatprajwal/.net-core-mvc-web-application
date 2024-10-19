@@ -1,7 +1,7 @@
 ﻿using Exceptions;
 using I18N.Extensions;
 
-namespace Api.Extensions;
+namespace Web.Extensions;
 
 public static class AppExtensions
 {
@@ -32,9 +32,7 @@ public static class AppExtensions
         app.UseAuthentication();
         app.UseAuthorization();
 
-        app.MapControllerRoute(
-            name: "default",
-            pattern: "{controller=Home}/{action=Index}/{id?}");
+        app.AddRoutes();
         app.MapRazorPages();
 
         // Exception
