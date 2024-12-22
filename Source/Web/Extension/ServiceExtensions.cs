@@ -22,6 +22,9 @@ public static class ServiceExtensions
         service.AddDatabaseDeveloperPageExceptionFilter();
         service.AddControllersWithViews();
 
+        // Session
+        service.AddSessionConfig(builder);
+
         service.AddRazorPages();
 
         // Serilog
