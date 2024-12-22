@@ -29,6 +29,9 @@ public static class AppExtensions
 
         app.UseRouting();
 
+        // Session
+        app.UseSession();
+
         app.UseAuthentication();
         app.UseAuthorization();
 
