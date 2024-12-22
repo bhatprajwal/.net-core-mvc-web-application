@@ -22,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Library\Dao\Dao.csproj" />
     <ProjectReference Include="..\Library\Model\Model.csproj" />
+    <ProjectReference Include="..\Library\Shared\Auth\Auth.csproj" />
     <ProjectReference Include="..\Library\Shared\Constants\Constants.csproj" />
     <ProjectReference Include="..\Library\Shared\Exceptions\Exceptions.csproj" />
     <ProjectReference Include="..\Library\Shared\I18N\I18N.csproj" />
