@@ -5,6 +5,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-Web-8fec0742-a419-4b31-bbff-3437b23401f1</UserSecretsId>
+
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <SignAssebly>true</SignAssebly>
+    <RootNamespace>Model</RootNamespace>
+    <OutputPath>..\Assemblies</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,19 +26,31 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Library\Dao\Dao.csproj" />
-    <ProjectReference Include="..\Library\Model\Model.csproj" />
-    <ProjectReference Include="..\Library\Shared\Constants\Constants.csproj" />
-    <ProjectReference Include="..\Library\Shared\Exceptions\Exceptions.csproj" />
-    <ProjectReference Include="..\Library\Shared\I18N\I18N.csproj" />
-    <ProjectReference Include="..\Library\Shared\Serilogs\Serilogs.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="BusinessLogic\Extensions\ToModel\" />
     <Folder Include="BusinessLogic\Extensions\ToDto\" />
     <Folder Include="BusinessLogic\Services\" />
     <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Constants">
+      <HintPath>..\Assemblies\Constants.dll</HintPath>
+    </Reference>
+    <Reference Include="Dao">
+      <HintPath>..\Assemblies\Dao.dll</HintPath>
+    </Reference>
+    <Reference Include="Exceptions">
+      <HintPath>..\Assemblies\Exceptions.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N">
+      <HintPath>..\Assemblies\I18N.dll</HintPath>
+    </Reference>
+    <Reference Include="Model">
+      <HintPath>..\Assemblies\Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilogs">
+      <HintPath>..\Assemblies\Serilogs.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
