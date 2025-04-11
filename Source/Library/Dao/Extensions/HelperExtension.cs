@@ -8,7 +8,7 @@ public static class HelperExtension
     public static IServiceCollection AddDao(this IServiceCollection services, WebApplicationBuilder builder)
     {
         // Entity Framework - Set accordingly - MSSQL | MySQL
-        services.AddMSSQLContext(builder);
+        services.AddMySQLContext(builder);
 
         // Identity
         services.AddUserIdentity();
