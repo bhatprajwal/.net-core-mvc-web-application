@@ -4,6 +4,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <SignAssebly>true</SignAssebly>
+    <RootNamespace>Model</RootNamespace>
+    <OutputPath>..\..\Assemblies</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,9 +19,11 @@
     <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
   </ItemGroup>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj" />
+    <Reference Include="Model">
+      <HintPath>..\..\Assemblies\Model.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

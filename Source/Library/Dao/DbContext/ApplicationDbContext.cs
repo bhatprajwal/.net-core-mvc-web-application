@@ -1,7 +1,7 @@
 ﻿using Dao.Extension;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Models;
+using Entity;
 
 namespace Dao.DbContext
 {

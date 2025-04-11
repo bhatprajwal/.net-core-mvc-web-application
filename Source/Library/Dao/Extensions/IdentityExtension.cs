@@ -1,7 +1,7 @@
 ﻿using Dao.DbContext;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using Models;
+using Entity;
 
 namespace Dao.Extensions;
 

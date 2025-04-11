@@ -1,7 +1,8 @@
-﻿namespace Models;
+﻿namespace Entity;
 
 [Serializable]
-public class Base<T>
+public abstract class Base<T>
+    where T : struct
 {
     public T Id { get; set; }
     public bool IsActive { get; set; }
