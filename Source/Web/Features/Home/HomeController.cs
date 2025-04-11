@@ -3,8 +3,11 @@ using Microsoft.Extensions.Localization;
 using System.Diagnostics;
 using Web.Dtos;
 
-namespace Web.Controllers;
+namespace Web.Features.Controllers;
 
+/// <summary>
+/// Home Controller
+/// </summary>
 public class HomeController : Controller
 {
 
@@ -14,6 +17,11 @@ public class HomeController : Controller
     #endregion
 
     #region Constructor
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="logger"></param>
+    /// <param name="factory"></param>
     public HomeController(
         ILogger<HomeController> logger
         , IStringLocalizerFactory factory
@@ -24,17 +32,29 @@ public class HomeController : Controller
     }
     #endregion
 
+    /// <summary>
+    /// Index
+    /// </summary>
+    /// <returns></returns>
     public IActionResult Index()
     {
         _logger.LogInformation("App starteds");
         return View();
     }
 
+    /// <summary>
+    /// Privacy
+    /// </summary>
+    /// <returns></returns>
     public IActionResult Privacy()
     {
         return View();
     }
 
+    /// <summary>
+    /// Error
+    /// </summary>
+    /// <returns></returns>
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
