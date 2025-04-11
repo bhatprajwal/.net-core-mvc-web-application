@@ -2,6 +2,7 @@
 using Exceptions;
 using I18N.Extensions;
 using Serilogs.Extensions;
+using Web.Extension;
 
 namespace Web.Extensions;
 
@@ -20,7 +21,7 @@ public static class ServiceExtensions
         service.AddEndpointsApiExplorer();
 
         service.AddDatabaseDeveloperPageExceptionFilter();
-        service.AddControllersWithViews();
+        service.AddCustomRazorPage();
 
         // Session
         service.AddSessionConfig(builder);

@@ -1,9 +1,10 @@
 ﻿@using Microsoft.Extensions.Localization
-@using Web.Controllers
+@using Web.Features.Controllers
 @inject IStringLocalizer<HomeController> Localizer
 
 @{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="text-center">

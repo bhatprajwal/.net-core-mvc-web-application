@@ -9,7 +9,6 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <SignAssebly>true</SignAssebly>
     <RootNamespace>Model</RootNamespace>
-    <OutputPath>..\..\Assemblies</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

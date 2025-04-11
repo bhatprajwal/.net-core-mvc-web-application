@@ -9,9 +9,12 @@ public static class SerilogExtension
 {
     public static WebApplicationBuilder AddSerilog(this WebApplicationBuilder builder)
     {
+        var basePath = AppContext.BaseDirectory;
+        var configPath = Path.Combine(basePath ?? Directory.GetCurrentDirectory(), "seri-log-config.json");
+
         var logger = new LoggerConfiguration()
                             .ReadFrom.Configuration(new ConfigurationBuilder()
-                            .AddJsonFile("seri-log-config.json")
+                            .AddJsonFile(configPath, optional: false, reloadOnChange: true)
                             .Build())
                             .Enrich.FromLogContext()
                             .CreateLogger();

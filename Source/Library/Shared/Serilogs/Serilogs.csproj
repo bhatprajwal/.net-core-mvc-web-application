@@ -8,8 +8,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <SignAssebly>true</SignAssebly>
-    <RootNamespace>Model</RootNamespace>
-    <OutputPath>..\..\..\Assemblies</OutputPath>
+    <RootNamespace>Serilogs</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
