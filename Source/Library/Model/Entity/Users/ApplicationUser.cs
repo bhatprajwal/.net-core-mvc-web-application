@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Models;
+namespace Entity;
 
 [Serializable]
 public class ApplicationUser : IdentityUser
