@@ -21,7 +21,7 @@ service.AddGoogleAuthentication(webApplicationBuilder);
 
 Note: Get this ClientId and ClientSecrete by registering 
 Steps
-1. Login with https://console.cloud.google.com/apis/credentials?invt=AbulLQ&project=webapp-1744405803268
+1. Login with https://console.cloud.google.com/apis/credentials
 2. Create Credentials
 3. Select OAuth ClientId
 4. Select Web Application
