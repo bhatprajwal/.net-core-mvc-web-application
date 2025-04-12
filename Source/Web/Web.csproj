@@ -42,6 +42,9 @@
     <Reference Include="Exceptions">
       <HintPath>..\Assemblies\Exceptions.dll</HintPath>
     </Reference>
+    <Reference Include="GoogleAuth">
+      <HintPath>..\Assemblies\GoogleAuth.dll</HintPath>
+    </Reference>
     <Reference Include="I18N">
       <HintPath>..\Assemblies\I18N.dll</HintPath>
     </Reference>

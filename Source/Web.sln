@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "Library\Share
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilogs", "Library\Shared\Serilogs\Serilogs.csproj", "{222A776A-56C2-4EAA-818C-5ED339E336B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoogleAuth", "Library\Shared\GoogleAuth\GoogleAuth.csproj", "{1A0AA30C-48DF-4FB3-AEA7-BB2B6BCA931C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{222A776A-56C2-4EAA-818C-5ED339E336B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{222A776A-56C2-4EAA-818C-5ED339E336B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{222A776A-56C2-4EAA-818C-5ED339E336B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A0AA30C-48DF-4FB3-AEA7-BB2B6BCA931C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0AA30C-48DF-4FB3-AEA7-BB2B6BCA931C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0AA30C-48DF-4FB3-AEA7-BB2B6BCA931C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0AA30C-48DF-4FB3-AEA7-BB2B6BCA931C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{0EFD2DDC-B562-4828-AC12-FC109565D1BD} = {B938C0C2-DF50-4F0F-92C4-30F82AE8BE4D}
 		{5C19CC7F-0DC7-4EA0-A10D-6F98DE3CB90B} = {B938C0C2-DF50-4F0F-92C4-30F82AE8BE4D}
 		{222A776A-56C2-4EAA-818C-5ED339E336B7} = {B938C0C2-DF50-4F0F-92C4-30F82AE8BE4D}
+		{1A0AA30C-48DF-4FB3-AEA7-BB2B6BCA931C} = {B938C0C2-DF50-4F0F-92C4-30F82AE8BE4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {74826135-6492-448A-A552-98ABD0D3170D}
