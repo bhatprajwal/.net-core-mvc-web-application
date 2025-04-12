@@ -1,5 +1,6 @@
 ﻿using Dao.Extensions;
 using Exceptions;
+using GoogleAuth.Extension;
 using I18N.Extensions;
 using Serilogs.Extensions;
 using Web.Extension;

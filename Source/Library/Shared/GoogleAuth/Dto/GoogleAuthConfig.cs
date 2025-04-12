@@ -1,4 +1,4 @@
-﻿namespace Web.Dtos;
+﻿namespace GoogleAuth.Dtos;
 
 /// <summary>
 /// Google Auth configuration

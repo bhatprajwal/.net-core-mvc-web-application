@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using GoogleAuth.Dtos;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Web.Dtos;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Web.Extension;
+namespace GoogleAuth.Extension;
 
 /// <summary>
 /// Google Auth Extension
@@ -13,15 +17,17 @@ public static class GoogleAuthExtension
     /// <summary>
     /// Add Google Auth configuration 
     /// </summary>
-    /// <param name="service">IServiceCollection</param>
+    /// <param name="serviceCollection">Service Collection</param>
+    /// <param name="webApplicationBuilder">Web Application Builder</param>
     /// <returns>IServiceCollection</returns>
-    public static IServiceCollection AddGoogleAuthentication(this IServiceCollection service, WebApplicationBuilder builder)
+    /// <exception cref="InvalidOperationException"></exception>
+    public static IServiceCollection AddGoogleAuthentication(this IServiceCollection serviceCollection, WebApplicationBuilder webApplicationBuilder)
     {
-        var googleConfig = builder.Configuration
+        var googleConfig = webApplicationBuilder.Configuration
             .GetSection("Authentication:Google")
             .Get<GoogleAuthConfig>() ?? throw new InvalidOperationException("Google Auth configuration not found.");
 
-        service.AddAuthentication(options =>
+        serviceCollection.AddAuthentication(options =>
         {
             options.DefaultScheme = IdentityConstants.ApplicationScheme;
             options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
@@ -49,7 +55,7 @@ public static class GoogleAuthExtension
             };
         });
 
-        service.ConfigureApplicationCookie(options =>
+        serviceCollection.ConfigureApplicationCookie(options =>
         {
             options.LoginPath = "/GoogleAuth/ExternalLogin";
 
@@ -68,11 +74,11 @@ public static class GoogleAuthExtension
             options.ExpireTimeSpan = TimeSpan.FromDays(14);
         });
 
-        service.Configure<CookiePolicyOptions>(options =>
+        serviceCollection.Configure<CookiePolicyOptions>(options =>
         {
             options.Secure = CookieSecurePolicy.Always;
         });
 
-        return service;
+        return serviceCollection;
     }
 }
