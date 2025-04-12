@@ -8,16 +8,16 @@
 
 ### Add to service configurations
 ```csharp
-service.AddDao(builder);
+service.AddDao(webApplicationBuilder);
 ```
 
 ### Use below configuration inside HelperExtension to choose different DB - MSSQL | MySQL
 ```
-services.AddMSSQLContext(builder);
+serviceCollection.AddMySQLContext(webApplicationBuilder);
 ```
 ## OR
 ```
-services.AddMySQLContext(builder);
+services.AddMySQLContext(webApplicationBuilder);
 ```
 
 ### Add to appsettings.json - My SQL
@@ -56,7 +56,7 @@ update-database;
 [Serializable]
 public class UserRole : IdentityRole
 {
-
+	// Add Props
 }
 ```
 
@@ -65,6 +65,6 @@ public class UserRole : IdentityRole
 [Serializable]
 public class ApplicationUser : IdentityUser
 {
-
+	// Add Props
 }
 ```

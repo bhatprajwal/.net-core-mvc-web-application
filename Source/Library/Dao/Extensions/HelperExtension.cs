@@ -3,16 +3,22 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Dao.Extensions;
 
+/// <summary>
+/// Database Helper Extension
+/// </summary>
 public static class HelperExtension
 {
-    public static IServiceCollection AddDao(this IServiceCollection services, WebApplicationBuilder builder)
+    /// <summary>
+    /// Add Data Access Object
+    /// </summary>
+    /// <param name="serviceCollection">IService Collection</param>
+    /// <param name="webApplicationBuilder"> WebApplicationBuilder</param>
+    /// <returns>IServiceCollection</returns>
+    public static IServiceCollection AddDao(this IServiceCollection serviceCollection, WebApplicationBuilder webApplicationBuilder)
     {
         // Entity Framework - Set accordingly - MSSQL | MySQL
-        services.AddMySQLContext(builder);
+        serviceCollection.AddMySQLContext(webApplicationBuilder);
 
-        // Identity
-        services.AddUserIdentity();
-
-        return services;
+        return serviceCollection;
     }
 }

@@ -10,3 +10,7 @@
 <div class="text-center">
     Web
 </div>
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-warning">@TempData["Error"]</div>
+}

@@ -1,11 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Entity;
+using Entity.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace Dao.Extension;
 
+/// <summary>
+/// Fluent Configuration
+/// </summary>
 public static class FluentConfigurationExtension
 {
-    public static ModelBuilder ApplyFluentConfigurations(this ModelBuilder builder)
+    /// <summary>
+    /// Apply Fluent Configuration
+    /// </summary>
+    /// <param name="modelBuilder">Model Builder</param>
+    /// <returns>ModelBuilder</returns>
+    public static ModelBuilder ApplyFluentConfigurations(this ModelBuilder modelBuilder)
     {
-        return builder;
+        // Application User
+        modelBuilder.ApplyConfiguration<ApplicationUser>(new ApplicationUserConfiguration());
+        
+        return modelBuilder;
     }
 }

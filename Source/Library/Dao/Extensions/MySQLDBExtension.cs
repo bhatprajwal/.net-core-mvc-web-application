@@ -5,13 +5,24 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Dao.Extensions;
 
+/// <summary>
+/// MySQL Database Extension
+/// </summary>
 public static class MySQLDBExtension
 {
-    public static IServiceCollection AddMySQLContext(this IServiceCollection services, WebApplicationBuilder builder)
+    /// <summary>
+    /// Add MySQL DB Configuration
+    /// </summary>
+    /// <param name="serviceCollection">IService Collection</param>
+    /// <param name="webApplicationBuilder">WebApplication Builder</param>
+    /// <returns>IServiceCollection</returns>
+    public static IServiceCollection AddMySQLContext(this IServiceCollection serviceCollection, WebApplicationBuilder webApplicationBuilder)
     {
-        services.AddDbContext<ApplicationDbContext>(options => 
-            options.UseMySQL(builder.GetConnectionString()));
+        serviceCollection.AddDbContext<ApplicationDbContext>(options => 
+            options.UseMySQL(webApplicationBuilder?.GetConnectionString()));
 
-        return services;
+        serviceCollection.AddUserIdentity();
+
+        return serviceCollection;
     }
 }

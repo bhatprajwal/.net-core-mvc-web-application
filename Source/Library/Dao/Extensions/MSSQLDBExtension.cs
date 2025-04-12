@@ -5,13 +5,24 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Dao.Extensions;
 
+/// <summary>
+/// MSSQL Database Extension
+/// </summary>
 public static class MSSQLDBExtension
 {
-    public static IServiceCollection AddMSSQLContext(this IServiceCollection services, WebApplicationBuilder builder)
+    /// <summary>
+    /// Add MSSQL DB Configuration
+    /// </summary>
+    /// <param name="serviceCollection">IService Collection</param>
+    /// <param name="webApplicationBuilder">WebApplication Builder</param>
+    /// <returns>IServiceCollection</returns>
+    public static IServiceCollection AddMSSQLContext(this IServiceCollection serviceCollection, WebApplicationBuilder webApplicationBuilder)
     {        
-        services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(builder.GetConnectionString()));
+        serviceCollection.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(webApplicationBuilder.GetConnectionString()));
 
-        return services;
+        serviceCollection.AddUserIdentity();
+
+        return serviceCollection;
     }
 }

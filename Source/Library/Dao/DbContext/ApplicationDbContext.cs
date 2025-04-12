@@ -5,25 +5,28 @@ using Entity;
 
 namespace Dao.DbContext
 {
+    /// <summary>
+    /// Application DB context
+    /// </summary>
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, UserRole, string>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        : base(options) { }
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="dbContextOptions"></param>
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions)
+        : base(dbContextOptions) { }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        /// <summary>
+        /// On Model Creating
+        /// </summary>
+        /// <param name="modelBuilder">Model Builder</param>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
+            base.OnModelCreating(modelBuilder);
 
             // This will support to apply the configuration for the entity via Fluent API
-            builder.ApplyFluentConfigurations();
+            modelBuilder.ApplyFluentConfigurations();
         }
-
-        // Application User | Identity User
-        public DbSet<ApplicationUser> Users { get; set; }
-
-        // User Roles | Identity Role
-        public DbSet<UserRole> Roles { get; set; }
-
-        // Rest of the model class for table creation
     }
 }
