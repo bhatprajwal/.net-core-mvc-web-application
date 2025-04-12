@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using Entity;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var user = await UserManager.GetUserAsync(User);
+    <div class="d-flex align-items-center gap-2">
+        @if (!string.IsNullOrEmpty(user?.ProfilePictureUrl))
+        {
+            <img src="@user.ProfilePictureUrl" alt="Profile" width="32" height="32" class="rounded-circle" />
+        }
+        <span class="text-dark">@user?.FullName</span>
+
+        <form asp-controller="GoogleAuth" asp-action="Logout" method="post" class="ms-2">
+            <button type="submit" class="text-dark">Logout</button>
+        </form>
+    </div>
+}
+else
+{
+    <partial name="_ExternalLogin" />
+}

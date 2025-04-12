@@ -5,6 +5,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace Dao.Extensions;
 
+/// <summary>
+/// Database Connection Helper
+/// </summary>
 public static class DbConnectionHelperExtension
 {
     #region Public Functions
@@ -13,10 +16,10 @@ public static class DbConnectionHelperExtension
     /// </summary>
     /// <param name="builder"></param>
     /// <returns></returns>
-    public static string GetConnectionString(this WebApplicationBuilder builder)
+    public static string? GetConnectionString(this WebApplicationBuilder builder)
     {
         var connectionStrings = GetConnectionStringConfig(builder);
-        return builder.Environment.IsDevelopment() ? connectionStrings.Dev : connectionStrings.Prod;
+        return builder.Environment.IsDevelopment() ? connectionStrings?.Dev : connectionStrings?.Prod;
     }
     #endregion
 
@@ -24,12 +27,12 @@ public static class DbConnectionHelperExtension
     /// <summary>
     /// Get Connection string record
     /// </summary>
-    /// <param name="builder"></param>
-    /// <returns></returns>
-    /// <exception cref="InvalidOperationException"></exception>
-    private static ConnectionStrings? GetConnectionStringConfig(WebApplicationBuilder builder)
+    /// <param name="webApplicationBuilder">WebApplication Builder</param>
+    /// <returns>ConnectionStrings</returns>
+    /// <exception cref="InvalidOperationException">Invalid Operation Exception</exception>
+    private static ConnectionStrings? GetConnectionStringConfig(WebApplicationBuilder webApplicationBuilder)
     {
-        return builder.Configuration.GetSection("ConnectionStrings").Get<ConnectionStrings>() ?? throw new InvalidOperationException("Connection string 'Prod - MSSQL' not found.");
+        return webApplicationBuilder.Configuration.GetSection("ConnectionStrings").Get<ConnectionStrings>() ?? throw new InvalidOperationException("Connection string 'Prod - MSSQL' not found.");
     } 
     #endregion
 }

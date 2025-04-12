@@ -24,9 +24,7 @@ public static class AppExtensions
         // I18N
         app.AddAppI18NLocalizer(builder);
         app.UseStaticFiles();
-
-        app.MapControllers();
-
+        app.UseCookiePolicy();
         app.UseRouting();
 
         // Session
@@ -34,10 +32,10 @@ public static class AppExtensions
 
         app.UseAuthentication();
         app.UseAuthorization();
-
-        app.AddRoutes();
+        
+        app.MapControllers();
         app.MapRazorPages();
-
+        app.AddRoutes();
         // Exception
         app.UseMiddleware<ExceptionMiddleware>();
 

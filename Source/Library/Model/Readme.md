@@ -7,5 +7,5 @@ Use this class project to define any model classes
 modelBuilder.Entity<YourEntity>()
     .HasQueryFilter(e => !e.IsDeleted);
 ```
-
-Note: Change <YourEntity> to specific model class while defining the IEntityTypeConfiguration<>
+### This will exclude all entities where IsDeleted == true from every LINQ query, unless explicitly overridden
+### Change <YourEntity> to specific model class while defining the IEntityTypeConfiguration<>

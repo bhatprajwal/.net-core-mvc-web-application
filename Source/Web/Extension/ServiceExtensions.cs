@@ -8,10 +8,13 @@ namespace Web.Extensions;
 
 public static class ServiceExtensions
 {
-    public static IServiceCollection AddServiceConfigurations(this IServiceCollection service, WebApplicationBuilder builder)
+    public static IServiceCollection AddServiceConfigurations(this IServiceCollection service, WebApplicationBuilder webApplicationBuilder)
     {
         // Entity Framework & Identity
-        service.AddDao(builder);
+        service.AddDao(webApplicationBuilder);
+
+        // Google Authentication
+        service.AddGoogleAuthentication(webApplicationBuilder);
 
         // I18N
         service.AddI18NLocalizer();
@@ -24,18 +27,18 @@ public static class ServiceExtensions
         service.AddCustomRazorPage();
 
         // Session
-        service.AddSessionConfig(builder);
+        service.AddSessionConfig(webApplicationBuilder);
 
         service.AddRazorPages();
 
         // Serilog
-        builder.AddSerilog();
+        webApplicationBuilder.AddSerilog();
 
         // Exception
         service.AddTransient<ExceptionMiddleware>();
 
         // Custom logic
-        service.AddBLServices(builder);
+        service.AddBLServices(webApplicationBuilder);
 
         return service;
     }

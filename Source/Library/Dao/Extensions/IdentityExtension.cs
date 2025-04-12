@@ -1,25 +1,35 @@
 ﻿using Dao.DbContext;
+using Entity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using Entity;
 
 namespace Dao.Extensions;
 
+/// <summary>
+/// Identity Extension
+/// </summary>
 public static class IdentityExtension
 {
-    public static IServiceCollection AddUserIdentity(this IServiceCollection services)
+    /// <summary>
+    /// Add User Identity
+    /// </summary>
+    /// <param name="serviceCollection"></param>
+    /// <returns></returns>
+    public static IServiceCollection AddUserIdentity(this IServiceCollection serviceCollection)
     {
-        services.AddIdentity<ApplicationUser, UserRole>(
+        serviceCollection.AddIdentityCore<ApplicationUser>(
                 options =>
                 {
+                    options.User.RequireUniqueEmail = true;
                     options.SignIn.RequireConfirmedEmail = true;
                     options.SignIn.RequireConfirmedAccount = true;
-                }                
+                }
             )
+            .AddRoles<UserRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultUI()
-            .AddDefaultTokenProviders();
+            .AddDefaultTokenProviders()
+            .AddDefaultUI();
 
-        return services;
+        return serviceCollection;
     }
 }
